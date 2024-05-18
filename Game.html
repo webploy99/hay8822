@@ -1,1163 +1,757 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Game</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.2.4/dist/js/splide.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.2.4/dist/css/splide.min.css"
-    />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  </head>
 
-  <style>
-    .bgfooter {
-      background-image: url(./images/imageforday1/imgfooter.jpg);
-      background-size: cover;
-      background-position: center;
-    }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.2.4/dist/js/splide.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.2.4/dist/css/splide.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
 
-    .bgcardgirl {
-      background-image: url(./images/imageforday1/bgcardgirl.png);
-      background-size: cover;
-      background-position: center;
-    }
 
-    .splide__pagination__page.is-active {
-      background: #ff0000 !important;
-      transform: scale(1.4);
-    }
-
-    .splide__slide {
-      text-align: center;
-    }
-
-    .splide__slide img {
-      width: 100%;
-      height: auto;
-    }
-
-    .main {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    #splide3 {
-      width: 300px;
-    }
-
-    header.sticky {
-      width: 100%;
-      transition: all 4s ease;
-      z-index: 5;
-      animation: scrollDown 1s;
-      position: fixed;
-    }
-
-    @keyframes scrollDown {
-      0% {
-        transform: translateY(-100%);
-      }
-
-      100% {
-        transform: translateY(0%);
-        position: fixed;
-      }
-    }
-
-    @media (min-width: 1536px) {
-      .responsive {
-        width: 66%;
-      }
-    }
-  </style>
-
-  <body class="">
-    <div class="select-none">
-      <div class="bg-blue-950 py-0 px-0 lg:px-1 relative">
-        <div
-          id="toggleStyle"
-          class="fixed w-full z-10 h-screen"
-          style="display: none"
-        >
-          <div
-            class="w-full h-screen inset-0 bg-gray-800 bg-opacity-50 fixed z-10 flex items-center"
-          >
-            <div
-              class="h-screen w-9/12 md:w-4/12 shadow inset-0 bg-white bg-opacity-95 z-10 pt-10 md:pt-16 space-y-6"
-            >
-              <div
-                class="flex space-x-0 justify-center items-center px-4 w-full"
-              >
-                <input
-                  type="text"
-                  class="py-1 border shadow placeholder:text-slate-400 placeholder:pl-2 focus:outline-none pl-2"
-                  placeholder="Tìm kiếm..."
-                />
-                <div class="bg-orange-600 text-white p-1 border shadow">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="w-7 h-7"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-                    />
-                  </svg>
-                </div>
-              </div>
-
-              <div class="w-full">
-                <ul class="md:space-y-4 space-y-2">
-                  <!-- flex items-center justify-center space-x-6 -->
-                  <li
-                    class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4"
-                  >
-                    <img class="w-5" src="./images/Menu/home.jpg" />
-                    <a href="#">Trang chủ</a>
-                  </li>
-                  <li
-                    class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4"
-                  >
-                    <img class="w-5" src="./images/Menu/8pool.jpg" />
-                    <a href="#"> Xổ số </a>
-                  </li>
-                  <li
-                    class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4"
-                  >
-                    <img class="w-5" src="./images/Menu/video.jpg" />
-                    <a href="#"> casino </a>
-                  </li>
-                  <li
-                    class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4"
-                  >
-                    <img class="w-5" src="./images/Menu/star.jpg" />
-                    <a href="#"> Thể thao </a>
-                  </li>
-                  <li
-                    class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4"
-                  >
-                    <img class="w-5" src="./images/Menu/morn.jpg" />
-                    <a href="#">Đá gà </a>
-                  </li>
-                  <li
-                    class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4"
-                  >
-                    <img class="w-5" src="./images/Menu/Capture-10.jpg" />
-                    <a href="#"> Nổ hũ </a>
-                  </li>
-                  <li
-                    class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4"
-                  >
-                    <img class="w-5" src="./images/Menu/trey.jpg" />
-                    <a href="#"> Bắn cá</a>
-                  </li>
-                  <li
-                    class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4"
-                  >
-                    <img class="w-5" src="./images/Menu/beer.jpg" />
-                    <a href="#"> Game bài </a>
-                  </li>
-                  <li
-                    class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4"
-                  >
-                    <img class="w-5" src="./images/Menu/Capture-13.jpg" />
-                    <a href="#">Ưu đãi </a>
-                  </li>
-                  <li
-                    class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4"
-                  >
-                    <img class="w-5" src="./images/Menu/Capture-17.jpg" />
-                    <a href="#"> Đại lý </a>
-                  </li>
-                  <li
-                    class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4"
-                  >
-                    <a href="#"> Tin tức </a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="pl-4">
-                <div
-                  class="bg-orange-100 rounded-full font-semibold py-2 px-2 w-32 flex justify-center items-center"
-                  style="background-color: #eace9a"
-                >
-                  <a href="#"> Đăng Ký +</a>
-                </div>
-              </div>
+<body>
+  <div class="select-none">
+    <div class="bg-blue-950 py-0 px-0 lg:px-1 relative">
+      <div id="toggleStyle" class="fixed w-full z-10 h-screen" style="display: none">
+        <div class="w-full h-screen inset-0 bg-gray-800 bg-opacity-50 fixed z-10 flex items-center">
+          <div class="h-screen w-9/12 md:w-4/12 shadow inset-0 bg-white bg-opacity-95 z-10 pt-10 md:pt-16 space-y-6">
+            <div class="flex space-x-0 justify-center items-center px-4 w-full">
+              <input type="text" class="py-1 shadow placeholder:text-slate-400 placeholder:pl-2 focus:outline-none pl-2"
+                placeholder="Tìm kiếm..."/>
+                <button class="bg-orange-500 px-2 py-1 text-2xl text-gray-100 flex jsutify-center items-center shadow"><ion-icon name="search"></ion-icon></button>
             </div>
 
-            <div
-              class="h-full w-8/12 inset-0 bg-gray-800 bg-opacity-50"
-              onclick="HandleHiddenMenu()"
-            >
-              <div
-                class="right-1 top-1 absolute bg-gray-300 w-6 h-6 rounded flex justify-center items-center"
-              >
-                X
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- menu -->
-        <header class="bg-blue-950 w-full">
-          <div
-            class="flex flex-col items-center justify-center 2xl:w-7/12 xl:w-10/12 lg:w-11/12 lg:w-12/12 mx-auto text-white"
-          >
-            <div class="w-full lg:justify-between lg:flex lg:items-center">
-              <div
-                onclick="HandleShowMenu()"
-                class="bg-orange-200 rounded-full w-9 h-9 flex lg:hidden justify-center items-center absolute left-5 top-5"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-6 h-6 text-white"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                  />
-                </svg>
-              </div>
-
-              <div
-                class="flex items-center justify-center lg:justify-start py-2"
-              >
-                <img src="./images/imageforday1/logo.png" class="w-60" />
-              </div>
-
-              <ul
-                class="flex space-x-8 lg:space-x-5 py-2 items-center justify-center lg:justify-normal bg-[#5121ba] lg:bg-blue-950 w-full lg:w-auto"
-              >
-                <li
-                  class="bg-orange-100 rounded-full font-semibold py-1 md:py-2 px-5"
-                  style="background-color: #eace9a"
-                >
-                  <a
-                    href="#"
-                    class="text-[13.1px] font-[roboto] uppercase text-gray-900 font-semibold"
-                    >Đăng Nhập</a
-                  >
-                </li>
-                <li
-                  class="bg-orange-100 rounded-full font-semibold py-1 md:py-2 px-5"
-                  style="background-color: #eace9a"
-                >
-                  <a
-                    href="#"
-                    class="text-[13.1px] font-[roboto] uppercase text-gray-900 font-semibold"
-                    >Đăng Ký +</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div
-            class="bg-[#5121ba] w-full py-4 hidden lg:flex lg:flex-col items-center justify-center"
-          >
-            <div
-              class="hidden lg:flex lg:flex-col items-center justify-center space-y-4 2xl:w-7/12 xl:w-10/12 lg:w-11/12 lg:w-12/12 mx-auto font-semibold text-white"
-            >
-              <ul
-                class="w-full uppercase flex justify-between items-center mx-auto"
-              >
-                <li class="flex items-center space-x-1 text-[12.8px]">
+            <div class="w-full">
+              <ul class="md:space-y-4 space-y-2">
+                <!-- flex items-center justify-center space-x-6 -->
+                <li class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4">
                   <img class="w-5" src="./images/Menu/home.jpg" />
                   <a href="#">Trang chủ</a>
                 </li>
-
-                <li class="flex items-center space-x-1 text-[12.8px]">
+                <li class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4">
                   <img class="w-5" src="./images/Menu/8pool.jpg" />
                   <a href="#"> Xổ số </a>
                 </li>
-
-                <li class="flex items-center space-x-1 text-[12.8px]">
+                <li class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4">
                   <img class="w-5" src="./images/Menu/video.jpg" />
                   <a href="#"> casino </a>
                 </li>
-
-                <li class="flex items-center space-x-1 text-[12.8px]">
+                <li class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4">
                   <img class="w-5" src="./images/Menu/star.jpg" />
                   <a href="#"> Thể thao </a>
                 </li>
-
-                <li class="flex items-center space-x-1 text-[12.8px]">
+                <li class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4">
                   <img class="w-5" src="./images/Menu/morn.jpg" />
                   <a href="#">Đá gà </a>
                 </li>
-
-                <li class="flex items-center space-x-1 text-[12.8px]">
+                <li class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4">
                   <img class="w-5" src="./images/Menu/Capture-10.jpg" />
                   <a href="#"> Nổ hũ </a>
                 </li>
-
-                <li class="flex items-center space-x-1 text-[12.8px]">
+                <li class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4">
                   <img class="w-5" src="./images/Menu/trey.jpg" />
                   <a href="#"> Bắn cá</a>
                 </li>
-
-                <li class="flex items-center space-x-1 text-[12.8px]">
+                <li class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4">
                   <img class="w-5" src="./images/Menu/beer.jpg" />
                   <a href="#"> Game bài </a>
                 </li>
-
-                <li class="flex items-center space-x-1 text-[12.8px]">
+                <li class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4">
                   <img class="w-5" src="./images/Menu/Capture-13.jpg" />
                   <a href="#">Ưu đãi </a>
                 </li>
-
-                <li class="flex items-center space-x-1 text-[12.8px]">
+                <li class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4">
                   <img class="w-5" src="./images/Menu/Capture-17.jpg" />
                   <a href="#"> Đại lý </a>
                 </li>
-
-                <li class="xl:flex hidden items-center space-x-1 text-[12.8px]">
+                <li class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4">
                   <a href="#"> Tin tức </a>
                 </li>
               </ul>
-              <li
-                class="flex items-center space-x-1 font-semibold uppercase text-[12.8px] text-white xl:hidden"
-              >
-                <a href="#" class="text-center"> Tin tức </a>
+            </div>
+
+            <div class="pl-4">
+              <div class="bg-orange-100 rounded-full font-semibold py-2 px-2 w-32 flex justify-center items-center"
+                style="background-color: #eace9a">
+                <a href="#"> Đăng Ký +</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="h-full w-8/12 inset-0 bg-gray-800 bg-opacity-50" onclick="HandleHiddenMenu()">
+            <div class="right-1 top-1 absolute bg-gray-300 w-6 h-6 rounded flex justify-center items-center">
+              X
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- menu -->
+      <header class="bg-blue-950 w-full">
+        <div class="flex flex-col items-center justify-center 2xl:w-7/12 xl:w-10/12 lg:w-11/12 lg:w-12/12 mx-auto text-white">
+          <div class="w-full lg:justify-between lg:flex lg:items-center">
+            <div onclick="HandleShowMenu()" class="bg-orange-200 rounded-full w-9 h-9 text-2xl text-gray-700 flex lg:hidden justify-center items-center absolute left-5 top-5">
+              <ion-icon name="menu"></ion-icon>
+            </div>
+
+            <div class="flex items-center justify-center lg:justify-start py-2">
+              <img src="./images/imageforday1/logo.png" class="w-60" />
+            </div>
+
+            <ul
+              class="flex space-x-8 lg:space-x-5 py-2 items-center justify-center lg:justify-normal bg-[#5121ba] lg:bg-blue-950 w-full lg:w-auto">
+              <li class="bg-orange-100 rounded-full font-semibold py-1 md:py-2 px-5" style="background-color: #eace9a">
+                <a href="#" class="text-[13.1px] font-[roboto] uppercase text-gray-900 font-semibold">Đăng Nhập</a>
               </li>
-            </div>
-          </div>
-        </header>
-      </div>
-
-      <!-- slider -->
-      <div>
-        <div class="main">
-          <div class="splide" id="splide1">
-            <div class="splide__track">
-              <ul class="splide__list">
-                <li class="splide__slide">
-                  <img src="./images/imageforday1/imgslider1.jpg" alt="" />
-                </li>
-                <li class="splide__slide">
-                  <img src="./images/imageforday1/imgslider2.jpg" alt="" />
-                </li>
-                <li class="splide__slide">
-                  <img src="./images/imageforday1/imgslider3.jpg" alt="" />
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-[#405772] py-8 md:py-10 h-auto">
-        <div
-          class="rounded-md text-xl w-11/12 2xl:w-10/12 3xl:w-8/12 mx-auto border-x-2 border-y-2 border-yellow-400 py-1 text-white"
-        >
-          <marquee class="font-semibold">
-            <span>
-              CHÀO MỪNG QUÝ KHÁCH ĐẾN VỚI TRANG CHỦ NHÀ CÁI XOSO66 – XOSO66.COM
-              UY TÍN – XANH CHÍN – MINH BẠCH – NẠP RÚT NHANH CHÓNG. NHÀ CÁI
-              XOSO66.COM CHÚC QUÝ KHÁCH 1 NGÀY MAY MẮN! TRÂN TRỌNG!!!
-            </span>
-          </marquee>
-        </div>
-        <div class="w-12/12 mx-auto space-y-6">
-          <div
-            class="text-2xl text-yellow-400 font-semibold w-11/12 2xl:w-8/12 mx-auto justify-center flex items-center mt-5 md:mt-10"
-          >
-            <h1 class="justify-center flex text-center">
-              Hay88 – Hay88.com | Link đăng tài khoản ký nhận 30k mới nhất 2024
-            </h1>
-          </div>
-          <div class="2xl:w-9/12 w-full mx-auto space-y-6">
-            <div class="2xl:px-12 px-0 space-y-4">
-              <div class="space-y-4">
-                <div class="h-16 w-full mx-auto rounded-xl bg-gray-800">
-                  <h1 class="md:text-2xl text-xl py-1 md:pl-10 pl-6 text-white">
-                    <span class="top-0 pt-1"> Game hots </span>
-                  </h1>
-                </div>
-
-                <!-- ICONs -->
-                <div
-                  class="2xl:w-10/12 md:w-11/12 w-full 2xl:px-0 mx-auto flex justify-center items-center"
-                >
-                  <ul
-                    class="px-8 lg:px-11 xl:px-0 grid-cols-2 md:grid-cols-3 xl:grid-cols-6 grid gap-4 py-1 w-full"
-                  >
-                    <li
-                      class="relative bg-gray-700 shadow-lg rounded-xl flex justify-center items-center py-1 w-full"
-                    >
-                      <div
-                        class="flex justify-center items-center rounded-full w-40 h-40"
-                      >
-                        <img src="./images/icons/icon1.png" class="w-9/12" />
-                      </div>
-                      <div
-                        class="absolute bottom-0 py-2 bg-gray-800 w-full rounded-b-xl shadow flex justify-center items-center text-white text-sm lg:text-base"
-                      >
-                        Siêu cấp Ace
-                      </div>
-                    </li>
-
-                    <li
-                      class="relative bg-gray-700 shadow-lg rounded-xl flex justify-center items-center py-1 w-full"
-                    >
-                      <div
-                        class="flex justify-center items-center rounded-full w-40 h-40"
-                      >
-                        <img src="./images/icons/icon2.png" class="w-full" />
-                      </div>
-                      <div
-                        class="absolute bottom-0 py-2 bg-gray-800 w-full rounded-b-xl shadow flex justify-center items-center text-white text-sm lg:text-base"
-                      >
-                        Heo Vàng
-                      </div>
-                    </li>
-
-                    <li
-                      class="relative bg-gray-700 shadow-lg rounded-xl flex justify-center items-center py-1 w-full"
-                    >
-                      <div
-                        class="flex justify-center items-center rounded-full w-40 h-40"
-                      >
-                        <img src="./images/icons/icon3.png" class="w-full" />
-                      </div>
-                      <div
-                        class="absolute bottom-0 py-2 bg-gray-800 w-full rounded-b-xl shadow flex justify-center items-center text-white text-sm lg:text-base"
-                      >
-                        TÀI XỈU 3 Phút
-                      </div>
-                    </li>
-
-                    <li
-                      class="relative bg-gray-700 shadow-lg rounded-xl flex justify-center items-center py-1 w-full"
-                    >
-                      <div
-                        class="flex justify-center items-center rounded-full w-40 h-40"
-                      >
-                        <img src="./images/icons/icon4.png" class="w-full" />
-                      </div>
-                      <div
-                        class="absolute bottom-0 py-2 bg-gray-800 w-full rounded-b-xl shadow flex justify-center items-center text-white text-sm lg:text-base"
-                      >
-                        Siêu cấp Ace
-                      </div>
-                    </li>
-
-                    <li
-                      class="relative bg-gray-700 shadow-lg rounded-xl flex justify-center items-center py-1 w-full"
-                    >
-                      <div
-                        class="flex justify-center items-center rounded-full w-40 h-40"
-                      >
-                        <img src="./images/icons/icon5.png" class="w-full" />
-                      </div>
-                      <div
-                        class="absolute bottom-0 py-2 bg-gray-800 w-full rounded-b-xl shadow flex justify-center items-center text-white text-sm lg:text-base"
-                      >
-                        Chú Bò May Mắn
-                      </div>
-                    </li>
-
-                    <li
-                      class="relative bg-gray-700 shadow-lg rounded-xl flex justify-center items-center py-1 w-full"
-                    >
-                      <div
-                        class="flex justify-center items-center rounded-full w-40 h-40"
-                      >
-                        <img src="./images/icons/icon6.png" class="w-full" />
-                      </div>
-                      <div
-                        class="absolute bottom-0 py-2 bg-gray-800 w-full rounded-b-xl shadow flex justify-center items-center text-white text-sm lg:text-base"
-                      >
-                        Ganesha Vàng
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div
-                class="flex flex-col justify-center items-center space-y-2 lg:space-y-4 xl:space-y-0"
-              >
-                <ul
-                  class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 2xl:gap-6 gap-2 lg:gap-4 2xl:px-5 w-10/12 2xl:w-auto"
-                >
-                  <li class="rounded-lg space-y-1">
-                    <a href="#">
-                      <div class="overflow-hidden rounded-lg shadow-xl">
-                        <img
-                          src="./images/imageforday1/card1.png"
-                          class="w-full mx-auto rounded-lg shadow-xl 2xl:hover:scale-110 transition-all duration-300"
-                        />
-                      </div>
-                      <button
-                        class="flex w-full text-sm md:text-base text-white shadow-xl justify-center items-center bg-[#0e0f1233] border border-white rounded-lg py-1 3xl:px-8 md:px-1"
-                      >
-                        Phí hoàn tối đa 1.5%
-                      </button>
-                    </a>
-                  </li>
-
-                  <li class="rounded-lg space-y-1">
-                    <a href="#">
-                      <div class="overflow-hidden rounded-lg shadow-xl">
-                        <img
-                          src="./images/imageforday1/card2.png"
-                          class="w-full mx-auto rounded-lg shadow-xl 2xl:hover:scale-110 transition-all duration-300"
-                        />
-                      </div>
-                      <button
-                        class="text-sm md:text-base flex w-full text-white shadow-xl justify-center items-center bg-[#0e0f1233] border border-white rounded-lg py-1 3xl:px-8 md:px-1"
-                      >
-                        Phí hoàn tối đa 1.4%
-                      </button>
-                    </a>
-                  </li>
-
-                  <li class="rounded-lg space-y-1">
-                    <a href="#">
-                      <div class="overflow-hidden rounded-lg shadow-xl">
-                        <img
-                          src="./images/imageforday1/card3.png"
-                          class="w-full mx-auto rounded-lg shadow-xl 2xl:hover:scale-110 transition-all duration-300"
-                        />
-                      </div>
-                      <button
-                        class="text-sm md:text-base flex w-full text-white shadow-xl justify-center items-center bg-[#0e0f1233] border border-white rounded-lg py-1 3xl:px-8 md:px-1"
-                      >
-                        Phí hoàn tối đa 1.4%
-                      </button>
-                    </a>
-                  </li>
-
-                  <li class="rounded-lg space-y-1 md:hidden block">
-                    <a href="#">
-                      <div class="overflow-hidden rounded-lg shadow-xl">
-                        <img
-                          src="./images/imageforday1/card4.png"
-                          class="w-full mx-auto rounded-lg shadow-xl 2xl:hover:scale-110 transition-all duration-300"
-                        />
-                      </div>
-                      <button
-                        class="text-sm md:text-base flex w-full text-white shadow-xl justify-center items-center bg-[#0e0f1233] border border-white rounded-lg py-1 3xl:px-8 md:px-1"
-                      >
-                        Phí hoàn tối đa 1.4%
-                      </button>
-                    </a>
-                  </li>
-
-                  <li class="rounded-lg space-y-1 hidden xl:block">
-                    <a href="#">
-                      <div class="overflow-hidden rounded-lg shadow-xl">
-                        <img
-                          src="./images/imageforday1/card4.png"
-                          class="w-full mx-auto rounded-lg shadow-xl 2xl:hover:scale-110 transition-all duration-300"
-                        />
-                      </div>
-                      <button
-                        class="text-sm md:text-base flex w-full text-white shadow-xl justify-center items-center bg-[#0e0f1233] border border-white rounded-lg py-1 3xl:px-8 md:px-1"
-                      >
-                        Phí hoàn tối đa 1.4%
-                      </button>
-                    </a>
-                  </li>
-
-                  <li class="rounded-lg space-y-1 hidden xl:block">
-                    <a href="#">
-                      <div class="overflow-hidden rounded-lg shadow-xl">
-                        <img
-                          src="./images/imageforday1/card5.png"
-                          class="w-full mx-auto rounded-lg shadow-xl 2xl:hover:scale-110 transition-all duration-300"
-                        />
-                      </div>
-                      <button
-                        class="text-sm md:text-base flex w-full text-white shadow-xl justify-center items-center bg-[#0e0f1233] border border-white rounded-lg py-1 3xl:px-8 md:px-1"
-                      >
-                        Phí hoàn tối đa 1.4%
-                      </button>
-                    </a>
-                  </li>
-                </ul>
-                <ul
-                  class="grid grid-cols-1 md:grid-cols-2 xl:hidden gap-2 lg:gap-4 w-10/12"
-                >
-                  <li class="rounded-lg space-y-1 hidden md:block">
-                    <a href="#">
-                      <div class="overflow-hidden rounded-lg shadow-xl">
-                        <img
-                          src="./images/imageforday1/card4.png"
-                          class="w-full mx-auto rounded-lg shadow-xl 2xl:hover:scale-110 transition-all duration-300"
-                        />
-                      </div>
-                      <button
-                        class="text-sm md:text-base flex w-full text-white shadow-xl justify-center items-center bg-[#0e0f1233] border border-white rounded-lg py-1 3xl:px-8 md:px-1"
-                      >
-                        Phí hoàn tối đa 1.4%
-                      </button>
-                    </a>
-                  </li>
-
-                  <li class="rounded-lg space-y-1 col col-span-2 md:col-span-1">
-                    <a href="#">
-                      <div class="overflow-hidden rounded-lg shadow-xl">
-                        <img
-                          src="./images/imageforday1/card5.png"
-                          class="w-full mx-auto rounded-lg shadow-xl hover:scale-110 transition-all duration-300"
-                        />
-                      </div>
-                      <button
-                        class="text-sm md:text-base flex w-full text-white shadow-xl justify-center items-center bg-[#0e0f1233] border border-white rounded-lg py-1 3xl:px-8 md:px-1"
-                      >
-                        Phí hoàn tối đa 1.4%
-                      </button>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div>
-              <div class="w-12/12 mx-auto 2xl:px-12 px-4 lg:px-8">
-                <h1
-                  class="md:text-2xl text-xl py-1 md:pl-10 pl-6 text-white bg-gray-800 rounded-lg pb-6"
-                >
-                  <span class="top-0 pt-1"> Game giải trí nhanh </span>
-                </h1>
-              </div>
-            </div>
-
-            <div class="w-full flex flex-col justify-center items-center">
-              <ul
-                class="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4 xl:px-10 md:px-0 lg:px-5 2xl:px-4 px-5 xl:w-full md:w-10/12 w-11/12"
-              >
-                <li>
-                  <a
-                    href="girl"
-                    class="bgcardgirl flex cursor-pointer justify-between items-center px-2 md:px-10 w-full shadow rounded-3xl"
-                  >
-                    <div class="w-44 overflow-hidden">
-                      <img
-                        src="./images/imageforday1/girl1.png"
-                        class="w-full hover:scale-110 duration-300 transition-all"
-                      />
-                    </div>
-                    <div
-                      class="text-white flex flex-col justify-center items-center space-y-4"
-                    >
-                      <div class="flex flex-col justify-center items-center">
-                        <img src="./images/logo/sky.png" class="w-44" />
-                        <h1 class="xl:text-3xl text-lg font-semibold">
-                          AE SEXY REALITY
-                        </h1>
-                        <p class="text-sm xl:text-lg text-gray-400">
-                          Phí hoàn tối đa 1.2%
-                        </p>
-                      </div>
-                      <div>
-                        <button
-                          class="px-6 xl:px-8 py-2 hover:scale-105 transition-all duration-300 bg-white text-gray-950 rounded-full"
-                        >
-                          Vào tro chơi
-                        </button>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="bgcardgirl flex cursor-pointer justify-between items-center px-2 md:px-10 w-full shadow bg-slate-700 rounded-3xl"
-                  >
-                    <div class="w-44 overflow-hidden">
-                      <img
-                        src="./images/imageforday1/girl2.png"
-                        class="w-full hover:scale-110 duration-300 transition-all"
-                      />
-                    </div>
-                    <div
-                      class="text-white flex flex-col justify-center items-center space-y-4"
-                    >
-                      <div class="flex flex-col justify-center items-center">
-                        <img
-                          src="./images/logo/dreamgamming.png"
-                          class="w-44"
-                        />
-                        <h1 class="xl:text-3xl text-lg font-semibold">
-                          DG CASINO
-                        </h1>
-                        <p class="text-sm xl:text-lg text-gray-400">
-                          Phí hoàn tối đa 1.2%
-                        </p>
-                      </div>
-                      <div>
-                        <button
-                          class="px-6 xl:px-8 py-2 hover:scale-105 transition-all duration-300 bg-white text-gray-950 rounded-full"
-                        >
-                          Vào tro chơi
-                        </button>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="girl"
-                    class="bgcardgirl flex cursor-pointer justify-between items-center px-2 md:px-10 w-full shadow bg-slate-700 rounded-3xl"
-                  >
-                    <div class="w-44 overflow-hidden">
-                      <img
-                        src="./images/imageforday1/girl3.png"
-                        class="w-full hover:scale-110 duration-300 transition-all"
-                      />
-                    </div>
-                    <div
-                      class="text-white flex flex-col justify-center items-center space-y-4"
-                    >
-                      <div class="flex flex-col justify-center items-center">
-                        <img src="./images/logo/casino.png" class="w-44" />
-                        <h1 class="xl:text-3xl text-lg font-semibold">
-                          WM CASINO
-                        </h1>
-                        <p class="text-sm xl:text-lg text-gray-400">
-                          Phí hoàn tối đa 1.2%
-                        </p>
-                      </div>
-                      <div>
-                        <button
-                          class="px-6 xl:px-8 py-2 hover:scale-105 transition-all duration-300 bg-white text-gray-950 rounded-full"
-                        >
-                          Vào tro chơi
-                        </button>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="girl"
-                    class="bgcardgirl flex cursor-pointer justify-between items-center px-2 md:px-10 w-full shadow bg-slate-700 rounded-3xl"
-                  >
-                    <div class="w-44 overflow-hidden">
-                      <img
-                        src="./images/imageforday1/girl4.png"
-                        class="w-full hover:scale-110 duration-300 transition-all"
-                      />
-                    </div>
-                    <div
-                      class="text-white flex flex-col justify-center items-center space-y-4"
-                    >
-                      <div class="flex flex-col justify-center items-center">
-                        <img src="./images/logo/casino.png" class="w-44" />
-                        <h1 class="xl:text-3xl text-lg font-semibold">
-                          AG CASINO
-                        </h1>
-                        <p class="text-sm xl:text-lg text-gray-400">
-                          Phí hoàn tối đa 1.2%
-                        </p>
-                      </div>
-                      <div>
-                        <button
-                          class="px-6 xl:px-8 py-2 hover:scale-105 transition-all duration-300 bg-white text-gray-950 rounded-full"
-                        >
-                          Vào tro chơi
-                        </button>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <footer class="w-full bg-[#405772]">
-        <div class="bgfooter h-auto xl:h-96 shadow-xl">
-          <!-- <img src="./images/imageforday1/imgfooter.jpg" class="absolute" /> -->
-          <div
-            class="text-white ml-2 md:ml-5 xl:ml-14 2xl:ml-64 py-5 space-y-2 md:space-y-2 xl:space-y-6"
-          >
-            <div>
-              <h1
-                class="text-md text-center flex justify-center md:justify-normal items-center md:text-lg xl:text-2xl 2xl:text-3xl font-semibold"
-              >
-                TẢI APP VỀ ĐIỆN THOẠI . CƯỢC MỌI LÚC MỌI NƠI
-              </h1>
-            </div>
-            <div class="">
-              <p
-                class="text-xs lg:text-sm xl:text-md flex justify-center md:justify-normal"
-              >
-                Một ứng dụng APP tích hợp các loại trò chơi, thao tác dễ dàng..
-              </p>
-              <p
-                class="text-xs lg:text-sm xl:text-md flex justify-center md:justify-normal"
-              >
-                Loạt game mới nhất và đầy đủ nhất, quét mã dưới đây để tải ngay!
-              </p>
-            </div>
-            <div
-              class="flex justify-center md:justify-normal pt-4 md:pt-3 space-x-10 2xl:space-x-20"
-            >
-              <div class="space-y-2">
-                <img
-                  src="./images/imageforday1/qr.png"
-                  class="w-24 2xl:w-32 rounded-xl shadow-xl"
-                />
-                <p class="text-xs lg:text-sm xl:text-md">TẢI XUỐNG IOS</p>
-              </div>
-              <div class="space-y-2">
-                <img
-                  src="./images/imageforday1/qr.png"
-                  class="w-24 2xl:w-32 rounded-xl shadow-xl"
-                />
-                <p class="text-xs lg:text-sm xl:text-md">TẢI XUỐNG ANDROID</p>
-              </div>
-            </div>
+              <li class="bg-orange-100 rounded-full font-semibold py-1 md:py-2 px-5" style="background-color: #eace9a">
+                <a href="#" class="text-[13.1px] font-[roboto] uppercase text-gray-900 font-semibold">Đăng Ký +</a>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div
-          class="w-full flex flex-col justify-center items-center bg-gray-800 py-10 shadow-xl space-y-3"
-        >
-          <ul
-            class="grid grid-cols-3 md:grid-cols-6 2xl:grid-cols-9 w-11/12 2xl:w-9/12 gap-4"
-          >
-            <li class="">
-              <a href="#"
-                ><img
-                  src="./images/logo/casino.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-              /></a>
-            </li>
-            <li>
-              <a href="#"
-                ><img
-                  src="./images/logo/10077.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-              /></a>
-            </li>
-            <li class="">
-              <a href="#"
-                ><img
-                  src="./images/logo/ag.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-              /></a>
-            </li>
-            <li>
-              <a href="#">
-                <img
-                  src="./images/logo/astar.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-                />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img
-                  src="./images/logo/bti.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-                />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img
-                  src="./images/logo/cmd368.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-                />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img
-                  src="./images/logo/esports.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-                />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img
-                  src="./images/logo/dreamgamming.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-                />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img
-                  src="./images/logo/evolution.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-                />
-              </a>
-            </li>
+        <div class="bg-[#5121ba] w-full py-4 hidden lg:flex lg:flex-col items-center justify-center">
+          <div class="hidden lg:flex lg:flex-col items-center justify-center space-y-4 2xl:w-7/12 xl:w-10/12 lg:w-11/12 lg:w-12/12 mx-auto font-semibold text-white">
+            <ul class="w-full uppercase flex justify-between items-center mx-auto">
+              <li class="flex items-center space-x-1 text-[12.8px]">
+                <img class="w-5" src="./images/Menu/home.jpg" />
+                <a href="#">Trang chủ</a>
+              </li>
 
-            <li class="">
-              <a href="#">
-                <img
-                  src="./images/logo/fbsports.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-                />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img
-                  src="./images/logo/gameplay.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-                />
-              </a>
-            </li>
-            <li class="">
-              <a href="#">
-                <img
-                  src="./images/logo/gw.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-                />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img
-                  src="./images/logo/jdb.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-                />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img
-                  src="./images/logo/kagaming.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-                />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img
-                  src="./images/logo/kingmaker.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-                />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img
-                  src="./images/logo/loto.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-                />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img
-                  src="./images/logo/microgaming.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-                />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img
-                  src="./images/logo/playtech.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-                />
-              </a>
-            </li>
-          </ul>
+              <li class="flex items-center space-x-1 text-[12.8px]">
+                <img class="w-5" src="./images/Menu/8pool.jpg" />
+                <a href="#"> Xổ số </a>
+              </li>
 
-          <ul
-            class="grid grid-cols-3 md:grid-cols-6 2xl:grid-cols-9 w-11/12 2xl:w-9/12 gap-4"
-          >
-            <li class="2xl:block hidden"></li>
+              <li class="flex items-center space-x-1 text-[12.8px]">
+                <img class="w-5" src="./images/Menu/video.jpg" />
+                <a href="#"> casino </a>
+              </li>
 
-            <li class="">
-              <a href="#">
-                <img
-                  src="./images/logo/casino.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-                />
-              </a>
+              <li class="flex items-center space-x-1 text-[12.8px]">
+                <img class="w-5" src="./images/Menu/star.jpg" />
+                <a href="#"> Thể thao </a>
+              </li>
+
+              <li class="flex items-center space-x-1 text-[12.8px]">
+                <img class="w-5" src="./images/Menu/morn.jpg" />
+                <a href="#">Đá gà </a>
+              </li>
+
+              <li class="flex items-center space-x-1 text-[12.8px]">
+                <img class="w-5" src="./images/Menu/Capture-10.jpg" />
+                <a href="#"> Nổ hũ </a>
+              </li>
+
+              <li class="flex items-center space-x-1 text-[12.8px]">
+                <img class="w-5" src="./images/Menu/trey.jpg" />
+                <a href="#"> Bắn cá</a>
+              </li>
+
+              <li class="flex items-center space-x-1 text-[12.8px]">
+                <img class="w-5" src="./images/Menu/beer.jpg" />
+                <a href="#"> Game bài </a>
+              </li>
+
+              <li class="flex items-center space-x-1 text-[12.8px]">
+                <img class="w-5" src="./images/Menu/Capture-13.jpg" />
+                <a href="#">Ưu đãi </a>
+              </li>
+
+              <li class="flex items-center space-x-1 text-[12.8px]">
+                <img class="w-5" src="./images/Menu/Capture-17.jpg" />
+                <a href="#"> Đại lý </a>
+              </li>
+
+              <li class="xl:flex hidden items-center space-x-1 text-[12.8px]">
+                <a href="#"> Tin tức </a>
+              </li>
+            </ul>
+            <li class="flex items-center space-x-1 font-semibold uppercase text-[12.8px] text-white xl:hidden">
+              <a href="#" class="text-center"> Tin tức </a>
             </li>
-
-            <li>
-              <a href="#">
-                <img
-                  src="./images/logo/10077.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-              /></a>
-            </li>
-
-            <li class="">
-              <a href="#"
-                ><img
-                  src="./images/logo/ag.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-              /></a>
-            </li>
-
-            <li>
-              <a href="#"
-                ><img
-                  src="./images/logo/astar.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-              /></a>
-            </li>
-
-            <li>
-              <a href="#"
-                ><img
-                  src="./images/logo/bti.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-              /></a>
-            </li>
-
-            <li>
-              <a href="#"
-                ><img
-                  src="./images/logo/cmd368.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-              /></a>
-            </li>
-
-            <li class="2xl:block hidden">
-              <a href="#">
-                <img
-                  src="./images/logo/esports.png"
-                  class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300"
-                />
-              </a>
-            </li>
-
-            <li class="2xl:block hidden"></li>
-          </ul>
-          <div
-            class="w-full flex justify-center items-center sm:px-8 lg:px-16 pt-3"
-          >
-            <span class="w-11/12 2xl:w-8/12 border border-gray-700"> </span>
-          </div>
-
-          <div
-            class="w-11/12 xl:w-8/12 flex flex-col items-center justify-center text-gray-400 space-y-2"
-          >
-            <div class="flex flex-col justify-center items-center space-y-2">
-              <p class="text-center text-xs sm:text-sm xl:text-base">
-                Cờ bạc có thể gây nghiện, hãy chơi có trách nhiệm. Để biết thông
-                tin về các biện pháp hỗ trợ, vui lòng truy cập trang trợ giúp
-                của chúng tôi.
-              </p>
-              <p
-                class="text-center px-4 lg:px-16 text-xs sm:text-sm xl:text-base"
-              >
-                Chúng tôi được cấp giấy phép hợp pháp do Ủy ban Giám sát
-                GC（GamblingCommission）của Vương quốc Anh (MGA) và (PAGCOR) do
-                Chính phủ Philippines cấp. Công ty đăng ký tại Quần đảo Virgin
-                thuộc Anh, được các hiệp hội quốc tế công nhận. Vui lòng đảm bảo
-                bạn đủ 18 tuổi trở lên trước khi đăng ký tham gia trò chơi!
-              </p>
-            </div>
-            <div class="flex justify-center items-center w-full">
-              <div
-                class="flex justify-center items-center w-10/12 lg:w-7/12 pt-1"
-              >
-                <img src="./images/imageforday1/imageinfooter.png" />
-              </div>
-            </div>
-            <div
-              class="flex justify-center items-center w-12/12 sm:w-11/12 xl:w-9/12 space-x-1 sm:space-x-3 2xl:space-x-8"
-            >
-              <p class="text-xs sm:text-sm xl:text-base">Trung tâm trợ giúp</p>
-              <p class="text-xs sm:text-sm xl:text-base">|</p>
-              <p class="text-xs sm:text-sm xl:text-base">Trung tâm trợ giúp</p>
-              <p class="text-xs sm:text-sm xl:text-base">|</p>
-              <p class="text-xs sm:text-sm xl:text-base">Trung tâm trợ giúp</p>
-              <p class="text-sm xl:text-base md:block hidden">|</p>
-              <p class="text-sm xl:text-base md:block hidden">
-                Trung tâm trợ giúp
-              </p>
-            </div>
-            <div>
-              <p class="text-xs sm:text-sm xl:text-base">
-                @ 2014-2024 v1.6.2 HAY88.All rights reserved
-              </p>
-            </div>
           </div>
         </div>
-      </footer>
+      </header>
     </div>
 
-    <script>
-      AOS.init();
-      document.addEventListener("DOMContentLoaded", function () {
-        var splide = new Splide("#splide1", {
-          type: "loop", // slide loop fade
-          perPage: 1,
-          autoplay: 1,
-          interval: 1250,
-        });
-        splide.mount();
+    <!-- slider -->
+    <div>
+      <div class="main">
+        <div class="splide" id="splide1">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <li class="splide__slide">
+                <img src="./images/imageforday1/imgslider1.jpg" alt="" />
+              </li>
+              <li class="splide__slide">
+                <img src="./images/imageforday1/imgslider2.jpg" alt="" />
+              </li>
+              <li class="splide__slide">
+                <img src="./images/imageforday1/imgslider3.jpg" alt="" />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        //new Splide('#splide2').mount();
-        new Splide("#splide2", {
-          cover: 1,
-          heightRatio: 0.5,
-        }).mount();
+    <div class="bg-[#405772] py-8 md:py-10 h-auto">
+      <div
+        class="rounded-md text-xl w-11/12 2xl:w-10/12 3xl:w-8/12 mx-auto border-x-2 border-y-2 border-yellow-400 py-1 text-white">
+        <marquee class="font-semibold">
+          <span>
+            CHÀO MỪNG QUÝ KHÁCH ĐẾN VỚI TRANG CHỦ NHÀ CÁI XOSO66 - XOSO66.COM
+            UY TÍN - XANH CHÍN - MINH BẠCH - NẠP RÚT NHANH CHÓNG. NHÀ CÁI
+            XOSO66.COM CHÚC QUÝ KHÁCH 1 NGÀY MAY MẮN! TRÂN TRỌNG!!!
+          </span>
+        </marquee>
+      </div>
+      <div class="w-12/12 mx-auto space-y-6">
+        <div
+          class="text-2xl text-yellow-400 font-semibold w-11/12 2xl:w-8/12 mx-auto justify-center flex items-center mt-5 md:mt-10">
+          <h1 class="justify-center flex text-center">
+            Hay88 - Hay88.com | Link đăng tài khoản ký nhận 30k mới nhất 2024
+          </h1>
+        </div>
+        <div class="2xl:w-9/12 w-full mx-auto space-y-6">
+          <div class="2xl:px-12 px-0 space-y-4">
+            <div class="space-y-4">
+              <div class="h-16 w-full mx-auto rounded-xl bg-gray-800">
+                <h1 class="md:text-2xl text-xl py-1 md:pl-10 pl-6 text-white">
+                  <span class="top-0 pt-1"> Game hots </span>
+                </h1>
+              </div>
 
-        new Splide("#splide3", {
-          //cover:1,
-          //heightRatio:1,
-          loop: 1,
-          perPage: 2,
-          breakpoints: {
-            640: {
-              perPage: 1,
-            },
-          },
-        }).mount();
+              <!-- ICONs -->
+              <div class="2xl:w-10/12 md:w-11/12 w-full 2xl:px-0 mx-auto flex justify-center items-center">
+                <ul class="px-8 lg:px-11 xl:px-0 grid-cols-2 md:grid-cols-3 xl:grid-cols-6 grid gap-4 py-1 w-full">
+                  <li class="relative bg-gray-700 shadow-lg rounded-xl flex justify-center items-center py-1 w-full">
+                    <div class="flex justify-center items-center rounded-full w-40 h-40">
+                      <img src="./images/icons/icon1.png" class="w-9/12" />
+                    </div>
+                    <div
+                      class="absolute bottom-0 py-2 bg-gray-800 w-full rounded-b-xl shadow flex justify-center items-center text-white text-sm lg:text-base">
+                      Siêu cấp Ace
+                    </div>
+                  </li>
 
-        new Splide("#splide4", {
-          cover: 1,
-          heightRatio: 1,
-        }).mount();
-      });
-      const HandleHiddenMenu = () => {
-        document.getElementById("toggleStyle").style.visibility = "hidden";
-        document.getElementById("toggleStyle").style.transition =
-          "all 0.1s ease";
-      };
-      const HandleShowMenu = () => {
-        document.getElementById("toggleStyle").style.visibility = "visible";
-        document.getElementById("toggleStyle").style.display = "block";
-        document.getElementById("toggleStyle").style.transition =
-          "all 0.2s ease";
-      };
+                  <li class="relative bg-gray-700 shadow-lg rounded-xl flex justify-center items-center py-1 w-full">
+                    <div class="flex justify-center items-center rounded-full w-40 h-40">
+                      <img src="./images/icons/icon2.png" class="w-full" />
+                    </div>
+                    <div
+                      class="absolute bottom-0 py-2 bg-gray-800 w-full rounded-b-xl shadow flex justify-center items-center text-white text-sm lg:text-base">
+                      Heo Vàng
+                    </div>
+                  </li>
 
-      window.addEventListener("scroll", function () {
-        var header = document.querySelector("header");
-        header.classList.toggle("sticky", window.scrollY > 220);
-      });
-    </script>
-  </body>
+                  <li class="relative bg-gray-700 shadow-lg rounded-xl flex justify-center items-center py-1 w-full">
+                    <div class="flex justify-center items-center rounded-full w-40 h-40">
+                      <img src="./images/icons/icon3.png" class="w-full" />
+                    </div>
+                    <div
+                      class="absolute bottom-0 py-2 bg-gray-800 w-full rounded-b-xl shadow flex justify-center items-center text-white text-sm lg:text-base">
+                      TÀI XỈU 3 Phút
+                    </div>
+                  </li>
+
+                  <li class="relative bg-gray-700 shadow-lg rounded-xl flex justify-center items-center py-1 w-full">
+                    <div class="flex justify-center items-center rounded-full w-40 h-40">
+                      <img src="./images/icons/icon4.png" class="w-full" />
+                    </div>
+                    <div
+                      class="absolute bottom-0 py-2 bg-gray-800 w-full rounded-b-xl shadow flex justify-center items-center text-white text-sm lg:text-base">
+                      Siêu cấp Ace
+                    </div>
+                  </li>
+
+                  <li class="relative bg-gray-700 shadow-lg rounded-xl flex justify-center items-center py-1 w-full">
+                    <div class="flex justify-center items-center rounded-full w-40 h-40">
+                      <img src="./images/icons/icon5.png" class="w-full" />
+                    </div>
+                    <div
+                      class="absolute bottom-0 py-2 bg-gray-800 w-full rounded-b-xl shadow flex justify-center items-center text-white text-sm lg:text-base">
+                      Chú Bò May Mắn
+                    </div>
+                  </li>
+
+                  <li class="relative bg-gray-700 shadow-lg rounded-xl flex justify-center items-center py-1 w-full">
+                    <div class="flex justify-center items-center rounded-full w-40 h-40">
+                      <img src="./images/icons/icon6.png" class="w-full" />
+                    </div>
+                    <div
+                      class="absolute bottom-0 py-2 bg-gray-800 w-full rounded-b-xl shadow flex justify-center items-center text-white text-sm lg:text-base">
+                      Ganesha Vàng
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="flex flex-col justify-center items-center space-y-2 lg:space-y-4 xl:space-y-0">
+              <ul
+                class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 2xl:gap-6 gap-2 lg:gap-4 2xl:px-5 w-10/12 2xl:w-auto">
+                <li class="rounded-lg space-y-1">
+                  <a href="#">
+                    <div class="overflow-hidden rounded-lg shadow-xl">
+                      <img src="./images/imageforday1/card1.png"
+                        class="w-full mx-auto rounded-lg shadow-xl 2xl:hover:scale-110 transition-all duration-300" />
+                    </div>
+                    <button
+                      class="flex w-full text-sm md:text-base text-white shadow-xl justify-center items-center bg-[#0e0f1233] border border-white rounded-lg py-1 3xl:px-8 md:px-1">
+                      Phí hoàn tối đa 1.5%
+                    </button>
+                  </a>
+                </li>
+
+                <li class="rounded-lg space-y-1">
+                  <a href="#">
+                    <div class="overflow-hidden rounded-lg shadow-xl">
+                      <img src="./images/imageforday1/card2.png"
+                        class="w-full mx-auto rounded-lg shadow-xl 2xl:hover:scale-110 transition-all duration-300" />
+                    </div>
+                    <button
+                      class="text-sm md:text-base flex w-full text-white shadow-xl justify-center items-center bg-[#0e0f1233] border border-white rounded-lg py-1 3xl:px-8 md:px-1">
+                      Phí hoàn tối đa 1.4%
+                    </button>
+                  </a>
+                </li>
+
+                <li class="rounded-lg space-y-1">
+                  <a href="#">
+                    <div class="overflow-hidden rounded-lg shadow-xl">
+                      <img src="./images/imageforday1/card3.png"
+                        class="w-full mx-auto rounded-lg shadow-xl 2xl:hover:scale-110 transition-all duration-300" />
+                    </div>
+                    <button
+                      class="text-sm md:text-base flex w-full text-white shadow-xl justify-center items-center bg-[#0e0f1233] border border-white rounded-lg py-1 3xl:px-8 md:px-1">
+                      Phí hoàn tối đa 1.4%
+                    </button>
+                  </a>
+                </li>
+
+                <li class="rounded-lg space-y-1 md:hidden block">
+                  <a href="#">
+                    <div class="overflow-hidden rounded-lg shadow-xl">
+                      <img src="./images/imageforday1/card4.png"
+                        class="w-full mx-auto rounded-lg shadow-xl 2xl:hover:scale-110 transition-all duration-300" />
+                    </div>
+                    <button
+                      class="text-sm md:text-base flex w-full text-white shadow-xl justify-center items-center bg-[#0e0f1233] border border-white rounded-lg py-1 3xl:px-8 md:px-1">
+                      Phí hoàn tối đa 1.4%
+                    </button>
+                  </a>
+                </li>
+
+                <li class="rounded-lg space-y-1 hidden xl:block">
+                  <a href="#">
+                    <div class="overflow-hidden rounded-lg shadow-xl">
+                      <img src="./images/imageforday1/card4.png"
+                        class="w-full mx-auto rounded-lg shadow-xl 2xl:hover:scale-110 transition-all duration-300" />
+                    </div>
+                    <button
+                      class="text-sm md:text-base flex w-full text-white shadow-xl justify-center items-center bg-[#0e0f1233] border border-white rounded-lg py-1 3xl:px-8 md:px-1">
+                      Phí hoàn tối đa 1.4%
+                    </button>
+                  </a>
+                </li>
+
+                <li class="rounded-lg space-y-1 hidden xl:block">
+                  <a href="#">
+                    <div class="overflow-hidden rounded-lg shadow-xl">
+                      <img src="./images/imageforday1/card5.png"
+                        class="w-full mx-auto rounded-lg shadow-xl 2xl:hover:scale-110 transition-all duration-300" />
+                    </div>
+                    <button
+                      class="text-sm md:text-base flex w-full text-white shadow-xl justify-center items-center bg-[#0e0f1233] border border-white rounded-lg py-1 3xl:px-8 md:px-1">
+                      Phí hoàn tối đa 1.4%
+                    </button>
+                  </a>
+                </li>
+              </ul>
+              <ul class="grid grid-cols-1 md:grid-cols-2 xl:hidden gap-2 lg:gap-4 w-10/12">
+                <li class="rounded-lg space-y-1 hidden md:block">
+                  <a href="#">
+                    <div class="overflow-hidden rounded-lg shadow-xl">
+                      <img src="./images/imageforday1/card4.png"
+                        class="w-full mx-auto rounded-lg shadow-xl 2xl:hover:scale-110 transition-all duration-300" />
+                    </div>
+                    <button
+                      class="text-sm md:text-base flex w-full text-white shadow-xl justify-center items-center bg-[#0e0f1233] border border-white rounded-lg py-1 3xl:px-8 md:px-1">
+                      Phí hoàn tối đa 1.4%
+                    </button>
+                  </a>
+                </li>
+
+                <li class="rounded-lg space-y-1 col col-span-2 md:col-span-1">
+                  <a href="#">
+                    <div class="overflow-hidden rounded-lg shadow-xl">
+                      <img src="./images/imageforday1/card5.png"
+                        class="w-full mx-auto rounded-lg shadow-xl hover:scale-110 transition-all duration-300" />
+                    </div>
+                    <button
+                      class="text-sm md:text-base flex w-full text-white shadow-xl justify-center items-center bg-[#0e0f1233] border border-white rounded-lg py-1 3xl:px-8 md:px-1">
+                      Phí hoàn tối đa 1.4%
+                    </button>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <div class="w-12/12 mx-auto 2xl:px-12 px-4 lg:px-8">
+              <h1 class="md:text-2xl text-xl py-1 md:pl-10 pl-6 text-white bg-gray-800 rounded-lg pb-6">
+                <span class="top-0 pt-1"> Game giải trí nhanh </span>
+              </h1>
+            </div>
+          </div>
+
+          <div class="w-full flex flex-col justify-center items-center">
+            <ul
+              class="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4 xl:px-10 md:px-0 lg:px-5 2xl:px-4 px-5 xl:w-full md:w-10/12 w-11/12">
+              <li>
+                <a href="girl"
+                  class="bgcardgirl flex cursor-pointer justify-between items-center px-2 md:px-10 w-full shadow rounded-3xl">
+                  <div class="w-44 overflow-hidden">
+                    <img src="./images/imageforday1/girl1.png"
+                      class="w-full hover:scale-110 duration-300 transition-all" />
+                  </div>
+                  <div class="text-white flex flex-col justify-center items-center space-y-4">
+                    <div class="flex flex-col justify-center items-center">
+                      <img src="./images/logo/sky.png" class="w-44" />
+                      <h1 class="xl:text-3xl text-lg font-semibold">
+                        AE SEXY REALITY
+                      </h1>
+                      <p class="text-sm xl:text-lg text-gray-400">
+                        Phí hoàn tối đa 1.2%
+                      </p>
+                    </div>
+                    <div>
+                      <button
+                        class="px-6 xl:px-8 py-2 hover:scale-105 transition-all duration-300 bg-white text-gray-950 rounded-full">
+                        Vào tro chơi
+                      </button>
+                    </div>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a href="#"
+                  class="bgcardgirl flex cursor-pointer justify-between items-center px-2 md:px-10 w-full shadow bg-slate-700 rounded-3xl">
+                  <div class="w-44 overflow-hidden">
+                    <img src="./images/imageforday1/girl2.png"
+                      class="w-full hover:scale-110 duration-300 transition-all" />
+                  </div>
+                  <div class="text-white flex flex-col justify-center items-center space-y-4">
+                    <div class="flex flex-col justify-center items-center">
+                      <img src="./images/logo/dreamgamming.png" class="w-44" />
+                      <h1 class="xl:text-3xl text-lg font-semibold">
+                        DG CASINO
+                      </h1>
+                      <p class="text-sm xl:text-lg text-gray-400">
+                        Phí hoàn tối đa 1.2%
+                      </p>
+                    </div>
+                    <div>
+                      <button
+                        class="px-6 xl:px-8 py-2 hover:scale-105 transition-all duration-300 bg-white text-gray-950 rounded-full">
+                        Vào tro chơi
+                      </button>
+                    </div>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a href="girl"
+                  class="bgcardgirl flex cursor-pointer justify-between items-center px-2 md:px-10 w-full shadow bg-slate-700 rounded-3xl">
+                  <div class="w-44 overflow-hidden">
+                    <img src="./images/imageforday1/girl3.png"
+                      class="w-full hover:scale-110 duration-300 transition-all" />
+                  </div>
+                  <div class="text-white flex flex-col justify-center items-center space-y-4">
+                    <div class="flex flex-col justify-center items-center">
+                      <img src="./images/logo/casino.png" class="w-44" />
+                      <h1 class="xl:text-3xl text-lg font-semibold">
+                        WM CASINO
+                      </h1>
+                      <p class="text-sm xl:text-lg text-gray-400">
+                        Phí hoàn tối đa 1.2%
+                      </p>
+                    </div>
+                    <div>
+                      <button
+                        class="px-6 xl:px-8 py-2 hover:scale-105 transition-all duration-300 bg-white text-gray-950 rounded-full">
+                        Vào tro chơi
+                      </button>
+                    </div>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a href="girl"
+                  class="bgcardgirl flex cursor-pointer justify-between items-center px-2 md:px-10 w-full shadow bg-slate-700 rounded-3xl">
+                  <div class="w-44 overflow-hidden">
+                    <img src="./images/imageforday1/girl4.png"
+                      class="w-full hover:scale-110 duration-300 transition-all" />
+                  </div>
+                  <div class="text-white flex flex-col justify-center items-center space-y-4">
+                    <div class="flex flex-col justify-center items-center">
+                      <img src="./images/logo/casino.png" class="w-44" />
+                      <h1 class="xl:text-3xl text-lg font-semibold">
+                        AG CASINO
+                      </h1>
+                      <p class="text-sm xl:text-lg text-gray-400">
+                        Phí hoàn tối đa 1.2%
+                      </p>
+                    </div>
+                    <div>
+                      <button
+                        class="px-6 xl:px-8 py-2 hover:scale-105 transition-all duration-300 bg-white text-gray-950 rounded-full">
+                        Vào tro chơi
+                      </button>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="w-full bg-[#405772]">
+      <div class="bgfooter h-auto xl:h-96 shadow-xl">
+        <!-- <img src="./images/imageforday1/imgfooter.jpg" class="absolute" /> -->
+        <div class="text-white ml-2 md:ml-5 xl:ml-14 2xl:ml-64 py-5 space-y-2 md:space-y-2 xl:space-y-6">
+          <div>
+            <h1
+              class="text-md text-center flex justify-center md:justify-normal items-center md:text-lg xl:text-2xl 2xl:text-3xl font-semibold">
+              TẢI APP VỀ ĐIỆN THOẠI . CƯỢC MỌI LÚC MỌI NƠI
+            </h1>
+          </div>
+          <div class="">
+            <p class="text-xs lg:text-sm xl:text-md flex justify-center md:justify-normal">
+              Một ứng dụng APP tích hợp các loại trò chơi, thao tác dễ dàng..
+            </p>
+            <p class="text-xs lg:text-sm xl:text-md flex justify-center md:justify-normal">
+              Loạt game mới nhất và đầy đủ nhất, quét mã dưới đây để tải ngay!
+            </p>
+          </div>
+          <div class="flex justify-center md:justify-normal pt-4 md:pt-3 space-x-10 2xl:space-x-20">
+            <div class="space-y-2">
+              <img src="./images/imageforday1/qr.png" class="w-24 2xl:w-32 rounded-xl shadow-xl" />
+              <p class="text-xs lg:text-sm xl:text-md">TẢI XUỐNG IOS</p>
+            </div>
+            <div class="space-y-2">
+              <img src="./images/imageforday1/qr.png" class="w-24 2xl:w-32 rounded-xl shadow-xl" />
+              <p class="text-xs lg:text-sm xl:text-md">TẢI XUỐNG ANDROID</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full flex flex-col justify-center items-center bg-gray-800 py-10 shadow-xl space-y-3">
+        <ul class="grid grid-cols-3 md:grid-cols-6 2xl:grid-cols-9 w-11/12 2xl:w-9/12 gap-4">
+          <li class="">
+            <a href="#"><img src="./images/logo/casino.png"
+                class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="./images/logo/10077.png"
+                class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" /></a>
+          </li>
+          <li class="">
+            <a href="#"><img src="./images/logo/ag.png"
+                class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" /></a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="./images/logo/astar.png" class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="./images/logo/bti.png" class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="./images/logo/cmd368.png" class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="./images/logo/esports.png"
+                class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="./images/logo/dreamgamming.png"
+                class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="./images/logo/evolution.png"
+                class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" />
+            </a>
+          </li>
+
+          <li class="">
+            <a href="#">
+              <img src="./images/logo/fbsports.png"
+                class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="./images/logo/gameplay.png"
+                class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" />
+            </a>
+          </li>
+          <li class="">
+            <a href="#">
+              <img src="./images/logo/gw.png" class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="./images/logo/jdb.png" class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="./images/logo/kagaming.png"
+                class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="./images/logo/kingmaker.png"
+                class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="./images/logo/loto.png" class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="./images/logo/microgaming.png"
+                class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="./images/logo/playtech.png"
+                class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" />
+            </a>
+          </li>
+        </ul>
+
+        <ul class="grid grid-cols-3 md:grid-cols-6 2xl:grid-cols-9 w-11/12 2xl:w-9/12 gap-4">
+          <li class="2xl:block hidden"></li>
+
+          <li class="">
+            <a href="#">
+              <img src="./images/logo/casino.png" class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" />
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <img src="./images/logo/10077.png"
+                class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" /></a>
+          </li>
+
+          <li class="">
+            <a href="#"><img src="./images/logo/ag.png"
+                class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" /></a>
+          </li>
+
+          <li>
+            <a href="#"><img src="./images/logo/astar.png"
+                class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" /></a>
+          </li>
+
+          <li>
+            <a href="#"><img src="./images/logo/bti.png"
+                class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" /></a>
+          </li>
+
+          <li>
+            <a href="#"><img src="./images/logo/cmd368.png"
+                class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" /></a>
+          </li>
+
+          <li class="2xl:block hidden">
+            <a href="#">
+              <img src="./images/logo/esports.png"
+                class="h-7 lg:h-14 2xl:hover:scale-110 transition-all duration-300" />
+            </a>
+          </li>
+
+          <li class="2xl:block hidden"></li>
+        </ul>
+        <div class="w-full flex justify-center items-center sm:px-8 lg:px-16 pt-3">
+          <span class="w-11/12 2xl:w-8/12 border border-gray-700"> </span>
+        </div>
+
+        <div class="w-11/12 xl:w-8/12 flex flex-col items-center justify-center text-gray-400 space-y-2">
+          <div class="flex flex-col justify-center items-center space-y-2">
+            <p class="text-center text-xs sm:text-sm xl:text-base">
+              Cờ bạc có thể gây nghiện, hãy chơi có trách nhiệm. Để biết thông
+              tin về các biện pháp hỗ trợ, vui lòng truy cập trang trợ giúp
+              của chúng tôi.
+            </p>
+            <p class="text-center px-4 lg:px-16 text-xs sm:text-sm xl:text-base">
+              Chúng tôi được cấp giấy phép hợp pháp do Ủy ban Giám sát
+              GC（GamblingCommission）của Vương quốc Anh (MGA) và (PAGCOR) do
+              Chính phủ Philippines cấp. Công ty đăng ký tại Quần đảo Virgin
+              thuộc Anh, được các hiệp hội quốc tế công nhận. Vui lòng đảm bảo
+              bạn đủ 18 tuổi trở lên trước khi đăng ký tham gia trò chơi!
+            </p>
+          </div>
+          <div class="flex justify-center items-center w-full">
+            <div class="flex justify-center items-center w-10/12 lg:w-7/12 pt-1">
+              <img src="./images/imageforday1/imageinfooter.png" />
+            </div>
+          </div>
+          <div
+            class="flex justify-center items-center w-12/12 sm:w-11/12 xl:w-9/12 space-x-1 sm:space-x-3 2xl:space-x-8">
+            <p class="text-xs sm:text-sm xl:text-base">Trung tâm trợ giúp</p>
+            <p class="text-xs sm:text-sm xl:text-base">|</p>
+            <p class="text-xs sm:text-sm xl:text-base">Trung tâm trợ giúp</p>
+            <p class="text-xs sm:text-sm xl:text-base">|</p>
+            <p class="text-xs sm:text-sm xl:text-base">Trung tâm trợ giúp</p>
+            <p class="text-sm xl:text-base md:block hidden">|</p>
+            <p class="text-sm xl:text-base md:block hidden">
+              Trung tâm trợ giúp
+            </p>
+          </div>
+          <div>
+            <p class="text-xs sm:text-sm xl:text-base">
+              @ 2014-2024 v1.6.2 HAY88.All rights reserved
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
 </html>

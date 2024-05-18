@@ -1,0 +1,60 @@
+.bgfooter {
+    background-image: url(./images/imageforday1/imgfooter.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .bgcardgirl {
+    background-image: url(./images/imageforday1/bgcardgirl.png);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .splide__pagination__page.is-active {
+    background: #ff0000 !important;
+    transform: scale(1.4);
+  }
+
+  .splide__slide {
+    text-align: center;
+  }
+
+  .splide__slide img {
+    width: 100%;
+    height: auto;
+  }
+
+  .main {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #splide3 {
+    width: 300px;
+  }
+
+  header.sticky {
+    width: 100%;
+    transition: all 4s ease;
+    z-index: 5;
+    animation: scrollDown 1s;
+    position: fixed;
+  }
+
+  @keyframes scrollDown {
+    0% {
+      transform: translateY(-100%);
+    }
+
+    100% {
+      transform: translateY(0%);
+      position: fixed;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .responsive {
+      width: 66%;
+    }
+  }
